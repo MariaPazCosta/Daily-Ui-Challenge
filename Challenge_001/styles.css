@@ -1,18 +1,30 @@
-/* Reset y configuración base */
+/* Reset y configuración base
+   - Se eliminan márgenes/paddings por defecto del navegador
+   - box-sizing: border-box hace que el padding se incluya en el ancho/alto
+*/
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Estilos del <body>
+   - font-family: define la tipografía
+   - height: 100vh asegura que el body ocupe toda la altura de la ventana
+   - display:flex para usar un layout en filas (dos columnas aquí)
+   - background: gradiente visual
+*/
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Popins', sans-serif;
     height: 100vh;
     display: flex;
     background: linear-gradient(135deg, #f5f1e8 0%, #a8b29a 100%);
 }
 
-/* Layout principal */
+/* Layout principal
+   - .container contiene dos columnas: formulario y sección de imagen
+   - display:flex crea un contenedor flexible en fila
+*/
 .container {
     display: flex;
     width: 100%;
@@ -20,28 +32,46 @@ body {
 }
 
 .form-section {
-    flex: 1;
+    /* Columna del formulario */
+    flex: 1; /* ocupa la mitad del contenedor flexible */
     background-color: #f5f1e8;
-    padding: 60px 80px;
+    padding: 80px 125px; /* espacio interno alrededor del contenido */
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: column; /* apila elementos verticalmente */
+    justify-content: space-around; /* separación vertical entre elementos */
 }
 
 .coffee-section {
+    /* Columna visual a la derecha con la imagen de fondo */
     flex: 1;
-    background: linear-gradient(135deg, #a8b29a 0%, #9aa490 100%);
+    background-image: url('coffee-9379521_1920.png');
+    background-size: cover; /* hace que la imagen cubra todo el área */
+    background-position: center; /* centra la parte visible de la imagen */
     position: relative;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: center; /* centra verticalmente */
+    justify-content: center; /* centra horizontalmente */
+}
+
+/* Imagen dentro de la sección de café
+   - width/height: 100% hacen que la imagen llene su contenedor
+   - object-fit: cover recorta la imagen para que no se deforme
+*/
+.coffee-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* rellena el contenedor sin distorsionar la imagen */
+    display: block;
+    max-width: none;
 }
 
 /* Header */
+/* Encabezado dentro del formulario (título y subtítulo) */
 .header {
     margin-bottom: 50px;
 }
 
+/* Título principal */
 .header h1 {
     font-size: 3.2rem;
     font-weight: 300;
@@ -50,6 +80,7 @@ body {
     letter-spacing: -1px;
 }
 
+/* Subtítulo/descripcion */
 .header p {
     font-size: 1.1rem;
     color: #666;
@@ -57,6 +88,9 @@ body {
 }
 
 /* Título del formulario */
+/* Título del formulario (ej. "Sign up")
+   - position:relative para que el ::after (la línea) se posicione respecto a este elemento
+*/
 .signup-title {
     font-size: 2rem;
     color: #2c2c2c;
@@ -65,21 +99,31 @@ body {
     position: relative;
 }
 
+/* Línea decorativa bajo el título
+   - ::after crea un elemento visual sin HTML adicional
+   - width:100% hace que la línea tenga el mismo ancho que .signup-title
+*/
 .signup-title::after {
     content: '';
     position: absolute;
     bottom: -10px;
     left: 0;
-    width: 60px;
+    width: 100%; /* hace que la línea ocupe el ancho del título */
     height: 2px;
     background-color: #a8b29a;
 }
 
 /* Formulario */
+/* Espacio entre elementos del formulario */
 .form-group {
     margin-bottom: 25px;
 }
 
+/* Estilo de los inputs
+   - width:100% hace que ocupen todo el ancho disponible dentro de su contenedor
+   - border-radius crea los bordes redondeados
+   - transition permite animar cambios (por ejemplo al hacer focus)
+*/
 .form-input {
     width: 100%;
     padding: 18px 25px;
@@ -93,11 +137,12 @@ body {
 }
 
 .form-input::placeholder {
-    color: #999;
+    color: #999; /* color del texto del placeholder */
     font-weight: 300;
 }
 
 .form-input:focus {
+    /* Estilos cuando el input tiene foco (el usuario está escribiendo) */
     background-color: #dcc7b0;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -105,6 +150,7 @@ body {
 
 /* Checkbox personalizado */
 .checkbox-group {
+    /* Agrupa checkbox y su etiqueta en línea */
     display: flex;
     align-items: center;
     margin: 35px 0;
@@ -112,6 +158,7 @@ body {
 }
 
 .checkbox {
+    /* Checkbox visual personalizado (no es un input nativo) */
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -122,11 +169,13 @@ body {
 }
 
 .checkbox.checked {
+    /* Estado cuando está seleccionado */
     background-color: #a8b29a;
     border-color: #a8b29a;
 }
 
 .checkbox.checked::after {
+    /* Marca de verificación dentro del checkbox */
     content: '✓';
     position: absolute;
     top: 50%;
@@ -144,7 +193,8 @@ body {
 
 /* Botón de envío */
 .submit-btn {
-    background-color: #a8b29a;
+    /* Botón principal */
+    background-color: #92a971;
     color: white;
     padding: 18px 40px;
     border: none;
@@ -153,100 +203,22 @@ body {
     font-weight: 400;
     cursor: pointer;
     transition: all 0.3s ease;
-    width: fit-content;
+    width: fit-content; /* el ancho se ajusta al contenido */
 }
 
 .submit-btn:hover {
+    /* Efecto cuando el cursor está sobre el botón */
     background-color: #9aa490;
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(168, 178, 154, 0.4);
 }
 
-/* Ilustración del café */
-.coffee-illustration {
-    width: 300px;
-    height: 300px;
-    position: relative;
-}
 
-.coffee-cup {
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, #d4a380 0%, #c49373 100%);
-    border-radius: 50%;
-    position: relative;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-}
-
-.coffee-inner {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 65%;
-    height: 65%;
-    background: #f2d5c2;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.coffee-liquid {
-    width: 80%;
-    height: 80%;
-    background: #3d2914;
-    border-radius: 50%;
-    position: relative;
-    overflow: hidden;
-}
-
-.coffee-foam {
-    position: absolute;
-    left: -10px;
-    top: -5px;
-    width: 45%;
-    height: 100%;
-    background: #b8925a;
-    border-radius: 50%;
-    opacity: 0.9;
-}
-
-/* Burbujas del café */
-.coffee-bubbles {
-    position: absolute;
-    top: 10%;
-    left: 20%;
-    width: 100%;
-    height: 100%;
-}
-
-.bubble {
-    position: absolute;
-    background-color: #2d1f0f;
-    border-radius: 50%;
-}
-
-.bubble:nth-child(1) { width: 8px; height: 8px; top: 20%; left: 30%; }
-.bubble:nth-child(2) { width: 6px; height: 6px; top: 35%; left: 15%; }
-.bubble:nth-child(3) { width: 10px; height: 10px; top: 15%; left: 45%; }
-.bubble:nth-child(4) { width: 4px; height: 4px; top: 50%; left: 25%; }
-.bubble:nth-child(5) { width: 7px; height: 7px; top: 30%; left: 55%; }
-.bubble:nth-child(6) { width: 5px; height: 5px; top: 45%; left: 40%; }
-
-/* Asa de la taza */
-.coffee-handle {
-    position: absolute;
-    right: -25px;
-    top: 40%;
-    width: 50px;
-    height: 80px;
-    border: 8px solid #f2d5c2;
-    border-left: none;
-    border-radius: 0 40px 40px 0;
-}
 
 /* Responsive Design */
+/* Responsive: reglas para pantallas pequeñas
+   - Se reorganiza el layout en columna para móvil
+*/
 @media (max-width: 768px) {
     .container {
         flex-direction: column;

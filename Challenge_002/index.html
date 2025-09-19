@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calm Productivity - Plan Premium</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <svg class="leaf-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22L6.66 19.7C7.14 19.87 7.64 20 8 20C19 20 22 3 22 3C21 5 14 5.25 9 6.25C4 7.25 2 11.5 2 15.5C2 15.75 2 16 2.05 16.25C2.34 16.46 2.65 16.65 3 16.81L4.31 14.75C4.75 14.5 5.5 14 5.5 14C5.5 14 5 14.75 4.75 15.19L6.81 16.5C7.85 16.75 9 16.75 10 16.5C10.25 16.25 10.5 15.75 10.75 15.25L17 8Z" fill="currentColor"/>
+            </svg>
+            <span class="brand-text">Calm Productivity</span>
+        </div>
+        <div class="nav-links">
+            <a href="#" class="nav-link">Home</a>
+            <a href="#" class="nav-link">Planes</a>
+            <a href="#" class="nav-link">Ayuda</a>
+        </div>
+        <div class="profile-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                <circle cx="12" cy="8" r="3" stroke="currentColor" stroke-width="2"/>
+                <path d="M8.21 13.89L7 23L12 20L17 23L15.79 13.88" stroke="currentColor" stroke-width="2"/>
+            </svg>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="payment-form-container">
+            <h1 class="form-title">Obtené tu plan premium</h1>
+            
+            <form class="payment-form" id="paymentForm">
+                <div class="form-group">
+                    <label for="cardNumber" class="form-label">Número de Tarjeta</label>
+                    <div class="input-container">
+                        <input 
+                            type="text" 
+                            id="cardNumber" 
+                            class="form-input" 
+                            placeholder="1234 5678 9012 3456"
+                            maxlength="19"
+                        >
+                        <div class="payment-icons">
+                            <!-- Payment method icons would go here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="cardName" class="form-label">Nombre del titular</label>
+                    <input 
+                        type="text" 
+                        id="cardName" 
+                        class="form-input" 
+                        placeholder="Juan Pérez"
+                    >
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="securityCode" class="form-label">Código de seguridad</label>
+                        <input 
+                            type="text" 
+                            id="securityCode" 
+                            class="form-input" 
+                            placeholder="XXX"
+                            maxlength="4"
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="expiry" class="form-label">Vencimiento</label>
+                        <input 
+                            type="text" 
+                            id="expiry" 
+                            class="form-input" 
+                            placeholder="MM/YY"
+                            maxlength="5"
+                        >
+                    </div>
+                </div>
+
+                <div class="checkbox-container">
+                    <input type="checkbox" id="terms" class="checkbox">
+                    <label for="terms" class="checkbox-label">Acepto términos y condiciones</label>
+                </div>
+
+                <div class="button-container">
+                    <button type="button" class="btn btn-cancel">Cancelar Pago</button>
+                    <button type="submit" class="btn btn-submit">Obtener Plan</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>

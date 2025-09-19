@@ -14,3 +14,7 @@ Archivos incluidos en esta carpeta:
 - `styles.css` — Estilos CSS asociados.
 - `script.js` — Lógica JavaScript (si aplica).
 
+# Diseño Original
+
+
+<img width="1337" height="953" alt="Captura de pantalla 2025-09-17 151557" src="https://github.com/user-attachments/assets/081f8033-9739-429c-b300-40211bbb1cb6" />
